@@ -7,6 +7,8 @@
 
 ## 학습 내용
 
+### 1주차
+
  1. 돈과관련된 연산을할때 float,double 자료형을 쓰지말아야할 이유에대해 설명해주세요.   
     - 컴퓨터가 실수를 표현하는방식(부동소수점, 고정소수점), BigDecimal이 어떻게 정밀도를 보장하는지(내부 확인)
 
@@ -14,10 +16,32 @@
     - 메모리관점, 생성과 소멸시기, 단점 , OOM
 
  3. primitive type vs reference type의 차이점이 무엇인가요.
+ 
  4. hashcode()에 대해 설명해주세요.
-    - 역할, 재정의, 해시충돌, 재해싱(rehashing), 보조해시함수, HashMap ...
+ 
  5. call by value, call by reference
-
+ 
+ ### 2주차
+ 
+ 6. HashMap에 대해서 설명해주시고, Hash Collision 발생 시 자바는 어떻게 대처하나요?
+ 
+ 7. Hash Collision이 많이 발생할 경우 어떤 최적화가 진행될까요?
+ 
+ 8. String.length() 메서드의 정확성에 대한 이야기
+ 
+ 9. String ="a", new String("a")의 메모리 적재방식
+ 
+ ### 3주차
+ 
+ 제네릭, wildcard 제네릭 
+ 
+ ArrayList, LinkedList
+ 
+ Array,List,Map
+ 
+ fail-fast, fail-safe iterator
+ 
+  
 
 ## 참고자료
 https://arc.dev/developer-blog/java-interview-questions/  
