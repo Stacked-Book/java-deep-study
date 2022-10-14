@@ -1,4 +1,4 @@
-# Map (HashMap, LinkedHashMap, TreeMap)
+# Map
 
 - Map 인터페이스는 Collection 인터페이스와는 다른 저장 방식을 가진다.
 - 자바는 `java.util.Map<K,V>` 인터페이스를 제공하며 키/값 모두 반드시 참조형이어야한다.
