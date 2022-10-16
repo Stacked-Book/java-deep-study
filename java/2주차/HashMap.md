@@ -121,7 +121,7 @@ Node 클래스 자체는 사실상 Java 7의 Entry 클래스와 내용이 같지
 
 이때 사용하는 트리는 **Red-Black Tree**이다. 트리 순회 시 사용하는 대소 판단 기준은 해시 함수 값이다. 해시 값을 대소 판단 기준으로 사용하면 Total Ordering에 문제가 생기는데, Java 8 HashMap에서는 이를 `tieBreakOrder()` 메서드로 해결한다
 > Red-Black Tree는 기본 이진 트리구조에 메타데이터를 부가(노드 컬러링)해서 트리 균형이 한쪽으로 치우치는 현상을 방지한 트리이다.
-
+ㅉ
 또한 put 메서드 구현 시 해시 버킷의 인덱스를 가져오는 것이 개선되었다.
 
 #### 1-3-2 해시 버킷 동적 확장
@@ -140,7 +140,16 @@ void resize(int newCapacity) {
 - 보조 해시 함수(supplement hash function)의 목적은 '키'의 해시 값을 변형하여, 해시 충돌 가능성을 줄이는 것이다.
 - Java 8에서는 이전 자바 버전보다 훨씬 더 단순한 형태의 보조 해시 함수를 사용한다.
   - 상위 16비트 값을 XOR 연산하는 매우 단순한 형태의 보조 해시 함수를 사용한다.
+    ```
+    static final int hash(Object key) { int h; return (key == null) ? 0 : (h = key.  hashCode()) ^ (h >>> 16); }
+    ```
+    - key가 null이면 해시코드는 0으로 설정되고 그렇지 않으면 키의 해시코드 (`key.hashCode()`)와 해시의 상위 비트 값을 XOR 연산을 한다.
+      <img src="https://user-images.githubusercontent.com/59333182/195841332-981a90c2-03e6-4709-a3c7-3d516845db64.png" />  
 
-```
-static final int hash(Object key) { int h; return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16); }
-```
+**왜 상위 16비트 값을 XOR 연산을 하게 되었을까??**
+
+- 해시 버킷의 확장은 2배라는 고정값으로 확장하게 되어 해시 버킷의 수에 규칙성이 생기면서 해시 값의 변동 폭에 한계가 생긴다. (하위 비트에서의 변경만 잦게 된다.)
+- 그래서 시프트 연산으로 16비트를 옮겨서 상위 비트들이 계산에 참여하게 한다.
+- 조금 더 큰 범위 폭에서 값을 변경해야 해시 충돌 가능성이 줄어들기 때문이다.
+
+> 참고 : https://mincong.io/2018/04/08/learning-hashmap/
