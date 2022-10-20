@@ -24,6 +24,12 @@
 
 <br>
 
+### 5. 자바에서 re-hashing을 사용하는 이유는 무엇인가요?
+한정된 버킷 갯수에 엔트리들이 계속해서 저장될 때 평균 탐색/삽입/삭제 시간을 줄이기 위해서입니다.
+
+<br>
+
+
 ## 들어가기 전에
 
 ### 해시 충돌(Hash Collision)이란
@@ -122,6 +128,38 @@ hash(x)가 해시함수로 계산된 인덱스 값이고 S가 테이블 크기�
 | 민감한 요소 | 해시 함수 또는 load factor에 덜 민감 | clustering과 load factor를 피하기 위해 주의 |
 | 사용  | 키가 얼마나 많이 삽입되거나 삭제되는지 알 수 없을 때 주로 사용 | 키의 빈도와 수를 알고 있을 때 사용 |
 
+<br>
+
+## Re-hashing
+
+### 1. Re-hashing이란
+Map, Array, Hashtable에서 get(), put() 연산의 시간복잡도를 O(1)로 유지하기 위해 size를 동적으로 확장하기 위한 기술이다.
+배열 요소의 갯수가 최대 크기에 도달했을 때 이미 저장된 엔트리들의 해시코드 값을 다시 계산하는 프로세스이다.
+
+<br>
+
+### 2. 구현
+- Map에 key-value를 insert 할 때마다 load factor 체크
+- load factor 기본 값보다 insert된 size를 버킷 갯수로 나눈 값이 클 때 re-hashing 진행
+  (size of the HashMap / number of Buckets) > load factor
+- doubled된 새로운 bucketArray 생성
+- old bucketArray 요소들을 반복해서 가져오고 insert() 메소드를 호출하여 새로운 bucketArray에 모든 요소들을 삽입
+
+<br>
+
+### 3. Load Factor
+동적으로 확장할지 말지를 결정짓는 척도로 HashMap에서의 기본 값은 0.75(75% of the map size)이다.
+- 공식
+    초기 HashMap 용량 X HashMap의 LoadFactor 값
+
+<br>
+
+**예제**
+
+초기 용량이 16이고 LoadFactor = 0.75일 때
+
+- 계산 => 16 X 0.75 = 12
+- 12개까지는 size를 16으로 유지하다가 13번째 key-value값을 insert할 때 size를 2⁴(16)에서 2⁵(32)로 버킷 갯수를 늘린다.
 
 <br>
 
