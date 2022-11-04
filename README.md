@@ -72,10 +72,10 @@
  
  16. atomic Type과 CAS는 무엇이고 언제 사용되는 것인가요?
      - Atomic Type vs Reentrant Lock
- 
- 17. IO / NIO 차이
-    - 버퍼를 사용하면 뭐가좋은지? 왜사용하는지?
-    - 파일다운로드시 IO/NIO 선택
+     
+ 17. IO / NIO 차이   
+     - 버퍼를 사용하면 뭐가좋은지? 왜사용하는지?   
+     - 파일다운로드시 IO/NIO 선택
 
 ### 5주차
 
