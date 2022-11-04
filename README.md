@@ -64,8 +64,33 @@
  14. HashMap vs HashTable vs ConcurrentHashMap
      - ConCurrentHashMap과 HashTable의 동기화 방식의 차이
      - fail-fast, fail-safe iterator
-  
+     
+### 4주차
+ 
+ 15. 자바의 synchronized가 무엇인지 Reentrant Lock 와 차이는 무엇인지 말씀해주세요.
+     - 어떤 상황에 무엇을 사용할건지?
+ 
+ 16. atomic Type과 CAS는 무엇이고 언제 사용되는 것인가요?
+     - Atomic Type vs Reentrant Lock
+ 
+ 17. IO / NIO 차이
+    - 버퍼를 사용하면 뭐가좋은지? 왜사용하는지?
+    - 파일다운로드시 IO/NIO 선택
 
+### 5주차
+
+ 18. JVM 동작방식
+     - 컴파일러와 인터프리터
+     
+ 19. GC의 종류, JDK별 default GC
+     - 각 gc별 동작방식
+     - gc별 주요 튜닝옵션
+     
+ 20. mark and sweep , young and old
+     - stw가 무엇이고 왜발생하는지? 발생시 생기는문제점
+     - 서바이버 영역은 왜 2개인가?
+     - 트래픽이 무지많이 몰리는 이벤트가 예정되어있다면 young, old 영역의 비율 어떻게 설정할것인가?
+   
 ## 참고자료
 https://arc.dev/developer-blog/java-interview-questions/  
 https://github.com/sirloin-dev/meatplatform  
