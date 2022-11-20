@@ -90,6 +90,12 @@
      - stw가 무엇이고 왜발생하는지? 발생시 생기는문제점
      - 서바이버 영역은 왜 2개인가?
      - 트래픽이 무지많이 몰리는 이벤트가 예정되어있다면 young, old 영역의 비율 어떻게 설정할것인가?
+     
+### 6주차
+[JDK 8~13의 feature들을 읽고 각자 새로 알게되었던점, 기억에 남는점등 자유롭게 이야기하기](https://github.com/Stacked-Book/java-deep-study/blob/main/java/6%EC%A3%BC%EC%B0%A8/JDK%208~13.md)
+
+### 7주차(完)
+JDK 14~19의 feature들을 읽고 각자 새로 알게되었던점, 기억에 남는점등 자유롭게 이야기하기
    
 ## 참고자료
 https://arc.dev/developer-blog/java-interview-questions/  
